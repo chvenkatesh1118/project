@@ -10,7 +10,7 @@ resource "aws_ecs_cluster" "ecscluster" {
 resource "aws_ecs_cluster_capacity_providers" "providers" {
   cluster_name = aws_ecs_cluster.ecscluster.name
 
-  capacity_providers = "EC2"
+  capacity_providers = ["EC2"]
 
   default_capacity_provider_strategy {
     base              = 1
