@@ -72,10 +72,7 @@ resource "aws_autoscaling_group" "autoscale" {
         weighted_capacity = "1"
       }
 
-      override {
-        instance_type     = "t2.micro"
-        weighted_capacity = "1"
-      }
+
     }
   }
 }
