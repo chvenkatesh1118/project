@@ -17,9 +17,9 @@ pipeline {
                    }
             steps {
             echo "creating_infra"
-//             sh 'cd project/ecs'
-            sh 'terraform init project/ecs'
-            sh 'terraform apply -auto-approve project/ecs'
+             sh 'cd project/ecs'
+            sh 'terraform init '
+            sh 'terraform apply -auto-approve '
             }
             }
         stage(destroy) {
