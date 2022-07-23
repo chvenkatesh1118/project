@@ -1,40 +1,92 @@
+
 resource "aws_ecs_cluster" "ecscluster" {
   name = "ecscluster"
-
-  setting {
-    name  = "containerInsights"
-    value = "enabled"
-
-  }
 }
-resource "aws_ecs_cluster_capacity_providers" "providers" {
+
+resource "aws_ecs_cluster_capacity_providers" "ecsclusterprovider" {
   cluster_name = aws_ecs_cluster.ecscluster.name
 
-  capacity_providers = ["autoscale"]
+  capacity_providers = [aws_ecs_capacity_provider.capacityprovider.name]
 
   default_capacity_provider_strategy {
     base              = 1
     weight            = 1
-    capacity_provider = "autoscale"
+    capacity_provider = aws_ecs_capacity_provider.capacityprovider.name
   }
 }
 
-
-resource "aws_ecs_capacity_provider" "EC2" {
-  name = "EC2"
+resource "aws_ecs_capacity_provider" "capacityprovider" {
+  name = "capacityprovider"
 
   auto_scaling_group_provider {
-    auto_scaling_group_arn         = aws_autoscaling_group.autoscale.arn
-    managed_termination_protection = "DISABLED"
-
-    managed_scaling {
-      maximum_scaling_step_size = 1
-      minimum_scaling_step_size = 1
-      status                    = "ENABLED"
-      target_capacity           = 1
-    }
+    auto_scaling_group_arn = aws_autoscaling_group.autoscale.arn
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#resource "aws_ecs_capacity_provider" "EC2" {
+#  name = "EC2"
+#
+#  auto_scaling_group_provider {
+#    auto_scaling_group_arn         = aws_autoscaling_group.autoscale.arn
+#    managed_termination_protection = "DISABLED"
+#
+#    managed_scaling {
+#      maximum_scaling_step_size = 1
+#      minimum_scaling_step_size = 1
+#      status                    = "ENABLED"
+#      target_capacity           = 1
+#    }
+#  }
+#}
 
 
 
