@@ -117,6 +117,6 @@ resource "aws_iam_policy" "ec2policy" {
 
 resource "aws_iam_role_policy_attachment" "test-attach" {
       role       = aws_iam_role.chantiecsrole.name
-      policy_arn = [aws_iam_policy.ecspolicy.arn, aws_iam_policy.ec2policy.arn, aws_iam_policy.cloudpolicy.arn]
+      policy_arn = [aws_iam_policy.ecspolicy.arn, aws_iam_policy.ec2policy.arn, aws_iam_policy.cloudpolicy.arn ]
 
 }
