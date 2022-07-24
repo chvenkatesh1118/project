@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  ECSC5ALDV:
+    Type: 'AWS::ECS::Cluster'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 1680546c-496b-44a7-b9a1-a65d95a1a36a
+  ECSCPE89W:
+    Type: 'AWS::ECS::CapacityProvider'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 2fa87bc4-39b5-4ee9-9b3b-54faf129e3fe
+  ECSCCPA50N54:
+    Type: 'AWS::ECS::ClusterCapacityProviderAssociations'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 6b95a371-e779-4f9b-b17f-f837161291de
+  ECSPTS1GIRX:
+    Type: 'AWS::ECS::PrimaryTaskSet'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 42921458-3cce-408c-88dd-934987dea7dc
+  ECSS4CEIK:
+    Type: 'AWS::ECS::Service'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: d0c7ceae-0901-4563-a4fb-40b907a31c19
+  ECSTD5A0E1:
+    Type: 'AWS::ECS::TaskDefinition'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 4f41b299-4b83-4e6e-bd22-6ec127d8745e
+  ECSTS40Q1M:
+    Type: 'AWS::ECS::TaskSet'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: a1894021-4105-4cd4-aee0-780ddcd49a2f
