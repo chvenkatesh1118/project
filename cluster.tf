@@ -98,7 +98,6 @@ resource "aws_launch_template" "launchtemplate" {
   name_prefix   = "launchtemplate"
   image_id      = "ami-0bb6af715826253bf"
   instance_type = "t2.micro"
-  region = "us-east-1a"
 }
 
 resource "aws_autoscaling_group" "autoscale" {
