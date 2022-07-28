@@ -7,7 +7,8 @@
    name            = "ecsservice"
    desired_count   = 1
    iam_role        = aws_iam_role.chantiecsrole.arn
-#   depends_on      = [aws_iam_role_policy.foo]
+#   depends_on      = [aws_iam_role_policy.ec2policy.arn]
+   load_balancer =  aws_lb.lb.id
 
 
  }

@@ -1,5 +1,5 @@
 resource "aws_iam_role" "chantiecsrole" {
-  name = "ecs-role"
+  name = "ecsrole"
 
   assume_role_policy = <<EOF
 {
@@ -44,8 +44,6 @@ resource "aws_iam_policy" "cloudpolicy" {
   path        = "/"
   description = "My test policy"
 
-  # Terraform's "jsonencode" function converts a
-  # Terraform expression result to valid JSON syntax.
   policy = jsonencode({
 
     "Version" : "2012-10-17",
@@ -64,8 +62,6 @@ resource "aws_iam_policy" "ec2policy" {
   path        = "/"
   description = "My test policy"
 
-  # Terraform's "jsonencode" function converts a
-  # Terraform expression result to valid JSON syntax.
   policy = jsonencode({
 
     "Version" : "2012-10-17",
@@ -129,4 +125,20 @@ resource "aws_iam_role_policy_attachment" "cloud-attach" {
   role       = aws_iam_role.chantiecsrole.name
   policy_arn = aws_iam_policy.cloudpolicy.arn
 
+}
+
+
+resource "aws_lb" "lb" {
+  name               = "lb"
+  internal           = false
+  load_balancer_type = "application"
+#  security_groups    = [aws_security_group.lb_sg.id]
+  subnets            = aws_subnet.subnet1.id
+
+  enable_deletion_protection = true
+
+
+  tags = {
+    Environment = "production"
+  }
 }
