@@ -1,0 +1,1 @@
+COMPONENTS = "fend,db,cat"
